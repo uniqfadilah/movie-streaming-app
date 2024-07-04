@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { RiAccountPinCircleFill } from 'react-icons/ri';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 type LayoutProps = {
   children: ReactNode;
 };
@@ -38,7 +39,35 @@ const Layout = ({ children }: LayoutProps) => {
               </li>
             ))}
             <li>
-              <RiAccountPinCircleFill size={25} />
+              <Popover className="relative">
+                <PopoverButton className="outline-none">
+                  <RiAccountPinCircleFill size={25} />
+                </PopoverButton>
+                <PopoverPanel
+                  transition
+                  anchor="bottom"
+                  className="divide-y -translate-x-4 mt-8 divide-white/5 rounded-xl bg-white/5 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+                >
+                  <nav className="p-3 bg-stone-900 text-white">
+                    <ul className="flex flex-col">
+                      <li className="whitespace-nowrap border-b-transparent border-b hover:border-white transition-all">
+                        Favorite list
+                      </li>
+                      {routes?.map((route: any, index: any) => (
+                        <li
+                          key={index}
+                          className="whitespace-nowrap border-b-transparent border-b hover:border-white transition-all inline md:hidden"
+                        >
+                          <Link to={route?.url}>{route?.name}</Link>
+                        </li>
+                      ))}
+                      <li className="whitespace-nowrap border-b-transparent border-b hover:border-white transition-all">
+                        Logout
+                      </li>
+                    </ul>
+                  </nav>
+                </PopoverPanel>
+              </Popover>
             </li>
           </ul>
         </nav>
