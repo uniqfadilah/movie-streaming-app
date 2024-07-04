@@ -22,7 +22,7 @@ const Home = () => {
       <input
         type="text"
         onChange={(e) => setSearch(e?.target?.value)}
-        placeholder="Search movies"
+        placeholder="🔍 Search movies"
         className="w-full bg-gray-100 outline-none rounded text-xl p-4 mt-6 rounded-xl"
       />
       <TitlePages label={search ? 'Search Result' : 'Your discovery'} />
