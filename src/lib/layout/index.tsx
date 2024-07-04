@@ -40,7 +40,7 @@ const Layout = ({ children }: LayoutProps) => {
           </ul>
         </nav>
       </div>
-      <div className="flex-1 container mx-auto py-4"> {children}</div>
+      <div className="flex-1 container mx-auto p-4"> {children}</div>
     </div>
   );
 };
