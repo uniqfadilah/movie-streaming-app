@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import ModalDetailMovie from 'src/lib/components/molecules/ModalDetailMovie';
+import useLikedVideos from 'src/lib/hooks/useLikedVideo';
 const movieContainerContext = createContext<any>(undefined);
 export const useMovieContainer = () => {
   const context = useContext(movieContainerContext);
@@ -12,12 +13,15 @@ export const useMovieContainer = () => {
 };
 const MovieContainer = ({ children }: any) => {
   const [selectedMovie, setSelectedMovie] = useState<string | null>(null);
-
+  const { addLikedVideo, isLiked, removeLikedVideo } = useLikedVideos();
   return (
     <movieContainerContext.Provider
       value={{
         selectedMovie,
         setSelectedMovie: (e: string) => setSelectedMovie(e),
+        addLikedVideo: (data: any) => addLikedVideo(data),
+        isLiked: (id: any) => isLiked(id),
+        removeLikedVideo: (id: any) => removeLikedVideo(id),
       }}
     >
       <>

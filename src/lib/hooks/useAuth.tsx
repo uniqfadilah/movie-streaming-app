@@ -20,6 +20,7 @@ const useAuth = () => {
   const logout = () => {
     localStorage.removeItem('authToken');
     localStorage.removeItem('authUser');
+    localStorage.removeItem('likedVideos');
     setIsLoggedIn(false);
     navigate('/login');
   };

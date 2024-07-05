@@ -7,6 +7,7 @@ const NowPlaying = React.lazy(() => import('src/lib/pages/now_playing'));
 const Upcoming = React.lazy(() => import('src/lib/pages/upcoming'));
 const TopRated = React.lazy(() => import('src/lib/pages/top_rated'));
 const Login = React.lazy(() => import('src/lib/pages/login'));
+const Favorites = React.lazy(() => import('src/lib/pages/favorites'));
 
 export const routes: Array<PathRouteProps> = [
   {
@@ -35,5 +36,9 @@ export const privateRoutes: Array<PathRouteProps> = [
   {
     element: <TopRated />,
     path: '/top-rated',
+  },
+  {
+    element: <Favorites />,
+    path: '/favorites',
   },
 ];

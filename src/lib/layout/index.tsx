@@ -59,7 +59,7 @@ const Layout = ({ children }: LayoutProps) => {
                     <nav className="p-3 bg-stone-900 text-white">
                       <ul className="flex flex-col">
                         <li className="whitespace-nowrap border-b-transparent border-b hover:border-white transition-all">
-                          Favorite list
+                          <Link to="/favorites"> Favorites list</Link>
                         </li>
                         {routes?.map((route: any, index: any) => (
                           <li

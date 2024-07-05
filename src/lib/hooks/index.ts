@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getDiscovery, getMovieDetail, getMovieSearch, getNowPlaying, getPopular, getTopRated, getUpComming } from "src/lib/services";
-
+export {default as useLikedVideo} from "./useLikedVideo"
 export const useQuerygetDiscovery = () => useQuery({
     queryKey : ["useQuerygetDiscovery"],
     queryFn : getDiscovery
