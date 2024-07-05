@@ -6,8 +6,14 @@ const Popular = React.lazy(() => import('src/lib/pages/popular'));
 const NowPlaying = React.lazy(() => import('src/lib/pages/now_playing'));
 const Upcoming = React.lazy(() => import('src/lib/pages/upcoming'));
 const TopRated = React.lazy(() => import('src/lib/pages/top_rated'));
+const Login = React.lazy(() => import('src/lib/pages/login'));
 
-export const routes: Array<PathRouteProps> = [];
+export const routes: Array<PathRouteProps> = [
+  {
+    path: '/login',
+    element: <Login />,
+  },
+];
 
 export const privateRoutes: Array<PathRouteProps> = [
   {
