@@ -9,6 +9,7 @@ const Popular = () => {
       <MovieContainer>
         {data?.data?.results?.map((discover: any, index: any) => (
           <MovieCard
+            data={discover}
             id={discover?.id}
             key={index}
             path={discover?.poster_path}

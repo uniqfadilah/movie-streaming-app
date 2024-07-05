@@ -26,3 +26,4 @@ export const getNowPlaying = () => client.get('movie/now_playing?language=en-US&
 export const getUpComming = () => client.get('movie/upcoming?language=en-US&page=1')
 export const getTopRated = () => client.get('movie/top_rated?language=en-US&page=1')
 export const getMovieSearch = ({query}:any) => client.get('/search/movie',{params : {query,language: 'en-US', page :1 }})
+export const getMovieDetail = (id:any) => client.get(`/movie/${id}?language=en-US`)

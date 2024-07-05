@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDiscovery, getMovieSearch, getNowPlaying, getPopular, getTopRated, getUpComming } from "../services";
+import { getDiscovery, getMovieDetail, getMovieSearch, getNowPlaying, getPopular, getTopRated, getUpComming } from "src/lib/services";
 
 export const useQuerygetDiscovery = () => useQuery({
     queryKey : ["useQuerygetDiscovery"],
@@ -26,3 +26,8 @@ export const useQuerygetMovieSearch = (query:any) => useQuery({
     enabled : !!query,
     queryFn : () => getMovieSearch({query})
 })
+export const useQueryGetMovieDetail = (id:any) => useQuery({
+    queryKey : ["useQueryGetMovieDetail", id],
+    enabled : !!id,
+    queryFn : () => getMovieDetail(id)
+}) 
