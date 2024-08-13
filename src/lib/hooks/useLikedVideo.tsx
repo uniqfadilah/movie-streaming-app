@@ -6,6 +6,19 @@ const useLikedVideos = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const handleStorageChange = (event: StorageEvent) => {
+    if (event.key === 'likedVideos') {
+      setLikedVideos(JSON.parse(event?.newValue as any));
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
   useEffect(() => {
     localStorage.setItem('likedVideos', JSON.stringify(likedVideos));
   }, [likedVideos]);
